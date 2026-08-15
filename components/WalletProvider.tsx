@@ -212,10 +212,12 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     try {
       const initial = getFirstCompatibleWallet();
       if (!initial) {
+        console.error('[VeilDrop] No compatible wallet found. window.midnight=', window.midnight);
         throw new Error(
           'No Midnight Lace wallet detected. Install the Lace browser extension, enable Midnight, and refresh.',
         );
       }
+      console.info('[VeilDrop] Connecting wallet', initial.name, 'apiVersion=', initial.apiVersion, 'network=', network.networkId);
       setNetworkId(network.networkId);
       let api;
       try {
@@ -225,6 +227,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
           'Wallet connection',
         );
       } catch (err) {
+        console.error('[VeilDrop] Wallet connect failed', err);
         const message = toMessage(err);
         if (message.toLowerCase().includes('network id mismatch')) {
           throw new Error(
@@ -233,11 +236,13 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         }
         throw err;
       }
+      console.info('[VeilDrop] Connected, checking status');
       const connectionStatus = await withTimeout(
         api.getConnectionStatus(),
         10_000,
         'Connection status check',
       );
+      console.info('[VeilDrop] Connection status', connectionStatus);
       if (connectionStatus.status !== 'connected') {
         throw new Error('Wallet connection was not established.');
       }
@@ -247,17 +252,20 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         );
       }
       connectedApiRef.current = api;
+      console.info('[VeilDrop] Building providers');
       const providers = await withTimeout(
         buildBrowserProviders(api),
         30_000,
         'Building wallet providers',
       );
       providersRef.current = providers;
+      console.info('[VeilDrop] Fetching unshielded address');
       const { unshieldedAddress } = await withTimeout(
         api.getUnshieldedAddress(),
         10_000,
         'Fetching wallet address',
       );
+      console.info('[VeilDrop] Wallet connected successfully', unshieldedAddress);
       setAddress(unshieldedAddress);
       setWalletStatus('connected');
       const existing = resolveContractAddress();
@@ -269,6 +277,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         setDeploymentStatus('idle');
       }
     } catch (err) {
+      console.error('[VeilDrop] Connection error', err);
       setWalletError(toMessage(err));
       setWalletStatus('ready');
     }

@@ -4,7 +4,7 @@ import '@midnight-ntwrk/dapp-connector-api';
 
 export type { InitialAPI, ConnectedAPI } from '@midnight-ntwrk/dapp-connector-api';
 
-const COMPATIBLE_CONNECTOR_API_VERSION = '4.x';
+const COMPATIBLE_CONNECTOR_API_VERSION = '3.x || 4.x';
 
 export function listWallets(): InitialAPI[] {
   if (typeof window === 'undefined' || !window.midnight) {
