@@ -65,7 +65,7 @@ const toMessage = (err: unknown): string => {
   }
 };
 
-const withTimeout = async <T>(
+const withTimeout = async <T,>(
   promise: Promise<T>,
   ms: number,
   label: string,
@@ -73,7 +73,7 @@ const withTimeout = async <T>(
   let timeoutId: ReturnType<typeof setTimeout>;
   const timeoutPromise = new Promise<never>((_, reject) => {
     timeoutId = setTimeout(
-      () => reject(new Error(`${label} timed out after ${ms / 1000}s. Please approve the Lace popup or try again.`),
+      () => reject(new Error(`${label} timed out after ${ms / 1000}s. Please approve the Lace popup or try again.`)),
       ms,
     );
   });
