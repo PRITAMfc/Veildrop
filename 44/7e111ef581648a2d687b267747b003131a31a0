@@ -1,0 +1,44 @@
+contract/managed/veildrop/compiler/contract-info.json
+  h_7aa35c57e7bf7b 1-228
+contract/managed/veildrop/contract/index.d.ts
+  h_7aa35c57e7bf7b 1-94
+contract/managed/veildrop/contract/index.js
+  h_7aa35c57e7bf7b 1-744
+contract/managed/veildrop/contract/index.js.map
+  h_7aa35c57e7bf7b 1-8
+contract/managed/veildrop/zkir/proveAuthorization.zkir
+  h_7aa35c57e7bf7b 1-46
+contract/managed/veildrop/zkir/submitReport.zkir
+  h_7aa35c57e7bf7b 1-113
+contract/managed/veildrop/zkir/updateReportStatus.zkir
+  h_7aa35c57e7bf7b 1-120
+contract/package.json
+  h_7aa35c57e7bf7b 1-23
+contract/src/index.ts
+  h_7aa35c57e7bf7b 1-16
+contract/src/main.compact
+  h_7aa35c57e7bf7b 1-91
+contract/src/witnesses.ts
+  h_7aa35c57e7bf7b 1-30
+contract/test/config.ts
+  h_7aa35c57e7bf7b 1-30
+contract/test/providers.ts
+  h_7aa35c57e7bf7b 1-42
+contract/test/veildrop.test.ts
+  h_7aa35c57e7bf7b 1-285
+contract/test/wallet.ts
+  h_7aa35c57e7bf7b 1-165
+contract/tsconfig.build.json
+  h_7aa35c57e7bf7b 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "447e111ef581648a2d687b267747b003131a31a0",
+  "prompts": {},
+  "humans": {
+    "h_7aa35c57e7bf7b": {
+      "author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
