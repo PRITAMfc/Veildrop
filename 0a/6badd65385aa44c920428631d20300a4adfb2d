@@ -1,0 +1,14 @@
+components/WalletProvider.tsx
+  h_96f0270f72c861 193,204
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0a6badd65385aa44c920428631d20300a4adfb2d",
+  "prompts": {},
+  "humans": {
+    "h_96f0270f72c861": {
+      "author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
