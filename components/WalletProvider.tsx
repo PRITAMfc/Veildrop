@@ -65,6 +65,21 @@ const toMessage = (err: unknown): string => {
   }
 };
 
+const withTimeout = async <T>(
+  promise: Promise<T>,
+  ms: number,
+  label: string,
+): Promise<T> => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(
+      () => reject(new Error(`${label} timed out after ${ms / 1000}s. Please approve the Lace popup or try again.`),
+      ms,
+    );
+  });
+  return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId));
+};
+
 const getOrCreateReporterSecret = (): Uint8Array => {
   const stored = window.localStorage.getItem(SECRET_KEY);
   if (stored && stored.length === 64) {
@@ -204,7 +219,11 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       setNetworkId(network.networkId);
       let api;
       try {
-        api = await initial.connect(network.networkId);
+        api = await withTimeout(
+          initial.connect(network.networkId),
+          30_000,
+          'Wallet connection',
+        );
       } catch (err) {
         const message = toMessage(err);
         if (message.toLowerCase().includes('network id mismatch')) {
@@ -214,7 +233,11 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         }
         throw err;
       }
-      const connectionStatus = await api.getConnectionStatus();
+      const connectionStatus = await withTimeout(
+        api.getConnectionStatus(),
+        10_000,
+        'Connection status check',
+      );
       if (connectionStatus.status !== 'connected') {
         throw new Error('Wallet connection was not established.');
       }
@@ -224,9 +247,17 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         );
       }
       connectedApiRef.current = api;
-      const providers = await buildBrowserProviders(api);
+      const providers = await withTimeout(
+        buildBrowserProviders(api),
+        30_000,
+        'Building wallet providers',
+      );
       providersRef.current = providers;
-      const { unshieldedAddress } = await api.getUnshieldedAddress();
+      const { unshieldedAddress } = await withTimeout(
+        api.getUnshieldedAddress(),
+        10_000,
+        'Fetching wallet address',
+      );
       setAddress(unshieldedAddress);
       setWalletStatus('connected');
       const existing = resolveContractAddress();
