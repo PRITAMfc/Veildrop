@@ -1,0 +1,21 @@
+package.json
+  s_e378d0141ac016::t_62cf0343faed37 19
+.env.example
+  s_e378d0141ac016::t_7662aa65969cfc 23-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ba7fd9e9615e8dc603c274e414f5edba79c9cc10",
+  "prompts": {},
+  "sessions": {
+    "s_e378d0141ac016": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ffb4b1e38ffelv1S56NkkzBdSK",
+        "model": "unknown"
+      },
+      "human_author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
