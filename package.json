@@ -17,7 +17,9 @@
     "env:up": "docker compose up -d --wait",
     "env:down": "docker compose down",
     "test": "npm run env:up && npm run test:contract",
-    "test:contract": "vitest run"
+    "test:contract": "vitest run --config vitest.config.ts",
+    "test:app": "vitest run --config vitest.config.app.ts",
+    "deploy:preprod": "npm run contract:build && node scripts/deploy-preprod.mjs"
   },
   "dependencies": {
     "@midnight-ntwrk/compact-js": "2.5.1",
