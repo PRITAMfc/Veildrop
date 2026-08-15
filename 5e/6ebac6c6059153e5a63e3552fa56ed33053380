@@ -1,0 +1,24 @@
+docs/evidence/contract-tests.txt
+  s_e378d0141ac016::t_17fc08bbdc2795 16-29,31,33-66,68,70-110,112,114-129
+contract/test/veildrop.test.ts
+  s_e378d0141ac016::t_fdee349a82b3fd 13
+  s_e378d0141ac016::t_bb7565bb7054de 89,92
+  s_e378d0141ac016::t_a7b45922e76fc6 224
+  s_e378d0141ac016::t_db5f0c61774052 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "5e6ebac6c6059153e5a63e3552fa56ed33053380",
+  "prompts": {},
+  "sessions": {
+    "s_e378d0141ac016": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ffb4b1e38ffelv1S56NkkzBdSK",
+        "model": "unknown"
+      },
+      "human_author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
