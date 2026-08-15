@@ -1,0 +1,18 @@
+.github/workflows/ci.yml
+  h_7aa35c57e7bf7b 32-34
+compose.yml
+  h_7aa35c57e7bf7b 37
+scripts/ci-devnet.sh
+  h_7aa35c57e7bf7b 1-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b03c6cfffe6bc0f55fc56db755383e39e570c663",
+  "prompts": {},
+  "humans": {
+    "h_7aa35c57e7bf7b": {
+      "author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
