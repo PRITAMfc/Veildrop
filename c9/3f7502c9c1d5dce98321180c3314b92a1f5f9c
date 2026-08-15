@@ -1,0 +1,22 @@
+compose.yml
+  h_7aa35c57e7bf7b 1-50
+next.config.ts
+  h_7aa35c57e7bf7b 1-45
+scripts/copy-assets.mjs
+  h_7aa35c57e7bf7b 1-23
+scripts/next/isomorphic-ws-shim.mjs
+  h_7aa35c57e7bf7b 1-2
+scripts/next/wasm-entry-loader.mjs
+  h_7aa35c57e7bf7b 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c93f7502c9c1d5dce98321180c3314b92a1f5f9c",
+  "prompts": {},
+  "humans": {
+    "h_7aa35c57e7bf7b": {
+      "author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
