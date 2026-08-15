@@ -1,0 +1,14 @@
+components/ConnectionGate.tsx
+  h_96f0270f72c861 28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "fb85562b5993f6c2e7640fed71a5333c4b527605",
+  "prompts": {},
+  "humans": {
+    "h_96f0270f72c861": {
+      "author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
