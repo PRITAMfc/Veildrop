@@ -183,10 +183,26 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         );
       }
       setNetworkId(network.networkId);
-      const api = await initial.connect(network.networkId);
+      let api;
+      try {
+        api = await initial.connect(network.networkId);
+      } catch (err) {
+        const message = toMessage(err);
+        if (message.toLowerCase().includes('network id mismatch')) {
+          throw new Error(
+            `Network ID mismatch: DApp expects "${network.networkId}", but your wallet is on a different network. Open Lace and switch to Midnight ${network.label}, then retry.`,
+          );
+        }
+        throw err;
+      }
       const connectionStatus = await api.getConnectionStatus();
       if (connectionStatus.status !== 'connected') {
         throw new Error('Wallet connection was not established.');
+      }
+      if (connectionStatus.networkId !== network.networkId) {
+        throw new Error(
+          `Network ID mismatch: DApp expects "${network.networkId}", but wallet is connected to "${connectionStatus.networkId}". Open Lace and switch to Midnight ${network.label}.`,
+        );
       }
       connectedApiRef.current = api;
       const providers = await buildBrowserProviders(api);
