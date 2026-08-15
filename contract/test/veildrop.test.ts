@@ -8,9 +8,9 @@ import {
 } from '@midnight-ntwrk/midnight-js-contracts';
 import { setNetworkId } from '@midnight-ntwrk/midnight-js-network-id';
 import type { ContractAddress } from '@midnight-ntwrk/midnight-js-protocol/compact-runtime';
-import { type EnvironmentConfiguration } from '@midnight-ntwrk/testkit-js';
+import { type EnvironmentConfiguration, waitForFunds } from '@midnight-ntwrk/testkit-js';
 import { getConfig } from './config.js';
-import { MidnightWalletProvider, syncWallet, type WalletSecret } from './wallet.js';
+import { MidnightWalletProvider, type WalletSecret } from './wallet.js';
 import { buildProviders, type VeilDropProviders } from './providers.js';
 import {
   CompiledVeilDropContract,
@@ -86,10 +86,10 @@ describe('VeilDrop Smart Contract via midnight-js', async () => {
     };
     aliceWallet = await MidnightWalletProvider.build(logger, envConfig, ALICE_SEED);
     await aliceWallet.start();
-    await syncWallet(logger, aliceWallet.wallet, 600_000);
+    await waitForFunds(aliceWallet.wallet, envConfig, false, aliceWallet.unshieldedKeystore);
     malloryWallet = await MidnightWalletProvider.build(logger, envConfig, MALLORY_SEED);
     await malloryWallet.start();
-    await syncWallet(logger, malloryWallet.wallet, 600_000);
+    await waitForFunds(malloryWallet.wallet, envConfig, false, malloryWallet.unshieldedKeystore);
     aliceProviders = buildProviders(aliceWallet, './contract/managed/veildrop', config);
     malloryProviders = buildProviders(malloryWallet, './contract/managed/veildrop', config);
     logger.info('Providers initialized, ready to test.');
@@ -221,7 +221,7 @@ describe('VeilDrop Smart Contract via midnight-js', async () => {
     };
     const bobWallet = await MidnightWalletProvider.build(logger, envConfig, bobSeed);
     await bobWallet.start();
-    await syncWallet(logger, bobWallet.wallet, 600_000);
+    await waitForFunds(bobWallet.wallet, envConfig, false, bobWallet.unshieldedKeystore);
     const bobProviders = buildProviders(bobWallet, './contract/managed/veildrop', config);
 
     const bobSk = randomBytes(32);

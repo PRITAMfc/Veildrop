@@ -13,112 +13,117 @@ At line:1 char:1
     + CategoryInfo          : NotSpecified: (Sourcemap for "...ng source files:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
  
-[17:16:20.414] [32mINFO[39m (20568): [36mInitializing wallet builder for undeployed[39m
-[17:16:20.519] [32mINFO[39m (20568): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":4654560},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
-[17:16:20.546] [32mINFO[39m (20568): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
-[17:16:20.546] [32mINFO[39m (20568): [36mStarting wallet...[39m
-[17:16:20.569] [32mINFO[39m (20568): [36mSyncing wallet...[39m
-[17:16:20.579] [32mINFO[39m (20568): [36mWallet sync [1]: shielded=false, unshielded=false, dust=false[39m
-[17:16:20.786] [32mINFO[39m (20568): [36mWallet sync [2]: shielded=false, unshielded=false, dust=false[39m
-[17:16:20.787] [32mINFO[39m (20568): [36mWallet sync [3]: shielded=false, unshielded=true, dust=false[39m
-[17:16:20.791] [32mINFO[39m (20568): [36mWallet sync [4]: shielded=false, unshielded=true, dust=false[39m
-[17:16:20.819] [32mINFO[39m (20568): [36mWallet sync [5]: shielded=false, unshielded=true, dust=false[39m
-2026-08-15 17:16:20        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+[17:26:01.655] [32mINFO[39m (36392): [36mInitializing wallet builder for undeployed[39m
+[17:26:01.753] [32mINFO[39m (36392): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":4654560},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
+[17:26:01.803] [32mINFO[39m (36392): [36mYour wallet address is: mn_addr_undeployed1h3ssm5ru2t6eqy4g3she78zlxn96e36ms6pq996aduvmateh9p9sk96u7s, waiting for NIGHT funds...[39m
+[17:26:01.805] [32mINFO[39m (36392): [36mSyncing wallet...[39m
+[17:26:01.815] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:01.816] [32mINFO[39m (36392): [36mWallet synced state emission (synced=false): { shielded=false, unshielded=false, dust=false }[39m
+[17:26:01.779] [32mINFO[39m (36392): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
+[17:26:01.780] [32mINFO[39m (36392): [36mStarting wallet...[39m
+[17:26:01.939] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:01.978] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:01.979] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:02.175] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:02.195] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+2026-08-15 17:26:02        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
 ws://127.0.0.1:9944/: 1000:: Normal Closure
-2026-08-15 17:16:20        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+2026-08-15 17:26:02        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
 ws://127.0.0.1:9944/: 1000:: Normal Closure
-[17:16:20.902] [32mINFO[39m (20568): [36mWallet sync [6]: shielded=false, unshielded=true, dust=false[39m
-[17:16:20.975] [32mINFO[39m (20568): [36mWallet sync [7]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.053] [32mINFO[39m (20568): [36mWallet sync [8]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.118] [32mINFO[39m (20568): [36mWallet sync [9]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.190] [32mINFO[39m (20568): [36mWallet sync [10]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.239] [32mINFO[39m (20568): [36mWallet sync [11]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.295] [32mINFO[39m (20568): [36mWallet sync [12]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.359] [32mINFO[39m (20568): [36mWallet sync [13]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.423] [32mINFO[39m (20568): [36mWallet sync [14]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.481] [32mINFO[39m (20568): [36mWallet sync [15]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.548] [32mINFO[39m (20568): [36mWallet sync [16]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.606] [32mINFO[39m (20568): [36mWallet sync [17]: shielded=true, unshielded=true, dust=false[39m
-[17:16:21.676] [32mINFO[39m (20568): [36mInitializing wallet builder for undeployed[39m
-[17:16:21.699] [32mINFO[39m (20568): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":5596368},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
-[17:16:21.671] [32mINFO[39m (20568): [36mWallet sync [18]: shielded=true, unshielded=true, dust=true[39m
-[17:16:21.671] [32mINFO[39m (20568): [36mWallet sync complete after 18 emissions[39m
-[17:16:21.712] [32mINFO[39m (20568): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
-[17:16:21.712] [32mINFO[39m (20568): [36mStarting wallet...[39m
-[17:16:21.718] [32mINFO[39m (20568): [36mSyncing wallet...[39m
-[17:16:21.721] [32mINFO[39m (20568): [36mWallet sync [1]: shielded=false, unshielded=false, dust=false[39m
-[17:16:21.778] [32mINFO[39m (20568): [36mWallet sync [2]: shielded=false, unshielded=false, dust=false[39m
-[17:16:21.800] [32mINFO[39m (20568): [36mWallet sync [3]: shielded=false, unshielded=false, dust=false[39m
-[17:16:21.800] [32mINFO[39m (20568): [36mWallet sync [4]: shielded=false, unshielded=false, dust=false[39m
-[17:16:21.801] [32mINFO[39m (20568): [36mWallet sync [5]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.857] [32mINFO[39m (20568): [36mWallet sync [6]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.867] [32mINFO[39m (20568): [36mWallet sync [7]: shielded=false, unshielded=true, dust=false[39m
-[17:16:21.997] [32mINFO[39m (20568): [36mWallet sync [8]: shielded=false, unshielded=true, dust=false[39m
-2026-08-15 17:16:22        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+[17:26:02.274] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:02.344] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:02.415] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.481] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.548] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.607] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.663] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.723] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.795] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.865] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.922] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:02.984] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:03.019] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=true }[39m
+[17:26:31.868] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=true }[39m
+[17:26:31.868] [32mINFO[39m (36392): [36mWallet synced state emission (synced=true): { shielded=true, unshielded=true, dust=true }[39m
+[17:26:31.869] [32mINFO[39m (36392): [36mSync complete[39m
+[17:26:31.871] [32mINFO[39m (36392): [36mWallet balances after sync - Shielded: {"0000000000000000000000000000000000000000000000000000000000000000":"250000000000000","0000000000000000000000000000000000000000000000000000000000000001":"50000000000000","0000000000000000000000000000000000000000000000000000000000000002":"50000000000000"}, Unshielded: {"0000000000000000000000000000000000000000000000000000000000000000":"250000000000000"}, Dust: "1250000000000000000000000"[39m
+[17:26:31.873] [32mINFO[39m (36392): [36mYour wallet NIGHT balance is: 250000000000000[39m
+[17:26:31.879] [32mINFO[39m (36392): [36mInitializing wallet builder for undeployed[39m
+[17:26:31.910] [32mINFO[39m (36392): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":5563440},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
+[17:26:31.937] [32mINFO[39m (36392): [36mYour wallet address is: mn_addr_undeployed1gkasr3z3vwyscy2jpp53nzr37v7n4r3lsfgj6v5g584dakjzt0xqun4d4r, waiting for NIGHT funds...[39m
+[17:26:31.938] [32mINFO[39m (36392): [36mSyncing wallet...[39m
+[17:26:31.945] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:31.945] [32mINFO[39m (36392): [36mWallet synced state emission (synced=false): { shielded=false, unshielded=false, dust=false }[39m
+[17:26:31.926] [32mINFO[39m (36392): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
+[17:26:31.926] [32mINFO[39m (36392): [36mStarting wallet...[39m
+[17:26:31.968] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:31.990] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:32.024] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:32.025] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:32.088] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:32.118] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:26:32.222] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+2026-08-15 17:26:32        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
 ws://127.0.0.1:9944/: 1000:: Normal Closure
-[17:16:22.058] [32mINFO[39m (20568): [36mWallet sync [9]: shielded=false, unshielded=true, dust=false[39m
-2026-08-15 17:16:22        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+2026-08-15 17:26:32        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
 ws://127.0.0.1:9944/: 1000:: Normal Closure
-[17:16:22.114] [32mINFO[39m (20568): [36mWallet sync [10]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.174] [32mINFO[39m (20568): [36mWallet sync [11]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.241] [32mINFO[39m (20568): [36mWallet sync [12]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.301] [32mINFO[39m (20568): [36mWallet sync [13]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.374] [32mINFO[39m (20568): [36mWallet sync [14]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.437] [32mINFO[39m (20568): [36mWallet sync [15]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.513] [32mINFO[39m (20568): [36mWallet sync [16]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.582] [32mINFO[39m (20568): [36mWallet sync [17]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.648] [32mINFO[39m (20568): [36mWallet sync [18]: shielded=true, unshielded=true, dust=false[39m
-[17:16:22.712] [32mINFO[39m (20568): [36mWallet sync [19]: shielded=true, unshielded=true, dust=true[39m
-[17:16:22.712] [32mINFO[39m (20568): [36mWallet sync complete after 19 emissions[39m
-[17:16:22.717] [32mINFO[39m (20568): [36mProviders initialized, ready to test.[39m
-[17:16:44.454] [32mINFO[39m (20568): [36mContract deployed at: 7543aaf50279401f18f6d26e35b7ebf3b652844be9dcab89d66146262b0920bc[39m
-[17:17:08.063] [32mINFO[39m (20568): [36mAlice proved authorization.[39m
-[17:17:08.459] [32mINFO[39m (20568): [36mMallory (invalid credential) was rejected.[39m
-[17:17:32.088] [32mINFO[39m (20568): [36mAlice registered a report commitment.[39m
-[17:17:32.114] [32mINFO[39m (20568): [36mInitializing wallet builder for undeployed[39m
-[17:17:32.149] [32mINFO[39m (20568): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":5558608},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
-[17:17:32.159] [32mINFO[39m (20568): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
-[17:17:32.159] [32mINFO[39m (20568): [36mStarting wallet...[39m
-[17:17:32.166] [32mINFO[39m (20568): [36mSyncing wallet...[39m
-[17:17:32.171] [32mINFO[39m (20568): [36mWallet sync [1]: shielded=false, unshielded=false, dust=false[39m
-[17:17:32.243] [32mINFO[39m (20568): [36mWallet sync [2]: shielded=false, unshielded=false, dust=false[39m
-[17:17:32.264] [32mINFO[39m (20568): [36mWallet sync [3]: shielded=false, unshielded=false, dust=false[39m
-[17:17:32.271] [32mINFO[39m (20568): [36mWallet sync [4]: shielded=false, unshielded=false, dust=false[39m
-[17:17:32.271] [32mINFO[39m (20568): [36mWallet sync [5]: shielded=false, unshielded=true, dust=false[39m
-[17:17:32.358] [32mINFO[39m (20568): [36mWallet sync [6]: shielded=false, unshielded=true, dust=false[39m
-2026-08-15 17:17:32        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+[17:26:32.303] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:32.376] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:32.450] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:32.514] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:32.574] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:26:32.630] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:32.689] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:32.754] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:32.820] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:32.895] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:32.966] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:33.032] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:26:33.067] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=true }[39m
+[17:27:01.964] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=true }[39m
+[17:27:01.964] [32mINFO[39m (36392): [36mWallet synced state emission (synced=true): { shielded=true, unshielded=true, dust=true }[39m
+[17:27:01.964] [32mINFO[39m (36392): [36mSync complete[39m
+[17:27:01.965] [32mINFO[39m (36392): [36mWallet balances after sync - Shielded: {"0000000000000000000000000000000000000000000000000000000000000000":"250000000000000","0000000000000000000000000000000000000000000000000000000000000001":"50000000000000","0000000000000000000000000000000000000000000000000000000000000002":"50000000000000"}, Unshielded: {"0000000000000000000000000000000000000000000000000000000000000000":"250000000000000"}, Dust: "1250000000000000000000000"[39m
+[17:27:01.966] [32mINFO[39m (36392): [36mYour wallet NIGHT balance is: 250000000000000[39m
+[17:27:01.973] [32mINFO[39m (36392): [36mProviders initialized, ready to test.[39m
+[17:27:20.554] [32mINFO[39m (36392): [36mContract deployed at: 0f3a0b9ada7223943826d884feb45f64778b832085e5f5be87e81691abfa24b3[39m
+[17:27:44.164] [32mINFO[39m (36392): [36mAlice proved authorization.[39m
+[17:27:44.421] [32mINFO[39m (36392): [36mMallory (invalid credential) was rejected.[39m
+[17:28:08.204] [32mINFO[39m (36392): [36mAlice registered a report commitment.[39m
+[17:28:08.225] [32mINFO[39m (36392): [36mInitializing wallet builder for undeployed[39m
+[17:28:08.260] [32mINFO[39m (36392): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":5178736},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
+[17:28:08.280] [32mINFO[39m (36392): [36mYour wallet address is: mn_addr_undeployed1g9nr3mvjcey7ca8shcs5d4yjndcnmczf90rhv4nju7qqqlfg4ygs0t4ngm, waiting for NIGHT funds...[39m
+[17:28:08.280] [32mINFO[39m (36392): [36mSyncing wallet...[39m
+[17:28:08.285] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.285] [32mINFO[39m (36392): [36mWallet synced state emission (synced=false): { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.271] [32mINFO[39m (36392): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
+[17:28:08.271] [32mINFO[39m (36392): [36mStarting wallet...[39m
+[17:28:08.296] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.313] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.341] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.341] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.398] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.424] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=false, dust=false }[39m
+[17:28:08.441] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:28:08.516] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:28:08.585] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+2026-08-15 17:28:08        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
 ws://127.0.0.1:9944/: 1000:: Normal Closure
-[17:17:32.450] [32mINFO[39m (20568): [36mWallet sync [7]: shielded=false, unshielded=true, dust=false[39m
-2026-08-15 17:17:32        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+2026-08-15 17:28:08        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
 ws://127.0.0.1:9944/: 1000:: Normal Closure
-[17:17:32.626] [32mINFO[39m (20568): [36mWallet sync [8]: shielded=false, unshielded=true, dust=false[39m
-[17:17:32.704] [32mINFO[39m (20568): [36mWallet sync [9]: shielded=false, unshielded=true, dust=false[39m
-[17:17:32.777] [32mINFO[39m (20568): [36mWallet sync [10]: shielded=true, unshielded=true, dust=false[39m
-[17:17:32.849] [32mINFO[39m (20568): [36mWallet sync [11]: shielded=true, unshielded=true, dust=false[39m
-[17:17:32.924] [32mINFO[39m (20568): [36mWallet sync [12]: shielded=true, unshielded=true, dust=false[39m
-[17:17:32.996] [32mINFO[39m (20568): [36mWallet sync [13]: shielded=true, unshielded=true, dust=false[39m
-[17:17:33.068] [32mINFO[39m (20568): [36mWallet sync [14]: shielded=true, unshielded=true, dust=false[39m
-[17:17:33.147] [32mINFO[39m (20568): [36mWallet sync [15]: shielded=true, unshielded=true, dust=false[39m
-[17:17:33.234] [32mINFO[39m (20568): [36mWallet sync [16]: shielded=true, unshielded=true, dust=false[39m
-[17:17:33.302] [32mINFO[39m (20568): [36mWallet sync [17]: shielded=true, unshielded=true, dust=false[39m
-[17:17:33.388] [32mINFO[39m (20568): [36mWallet sync [18]: shielded=true, unshielded=true, dust=false[39m
-[17:17:33.420] [32mINFO[39m (20568): [36mWallet sync [19]: shielded=true, unshielded=true, dust=true[39m
-[17:17:33.420] [32mINFO[39m (20568): [36mWallet sync complete after 19 emissions[39m
-[17:17:56.098] [32mINFO[39m (20568): [36mBob (valid credential, distinct secret) registered a report.[39m
-[17:18:15.839] [32mINFO[39m (20568): [36mReport #1 status updated to UNDER_INVESTIGATION.[39m
-[17:18:16.070] [32mINFO[39m (20568): [36mStatus update for a nonexistent report was rejected.[39m
-[17:18:16.071] [32mINFO[39m (20568): [36mStopping aliceWallet...[39m
-[17:18:16.090] [32mINFO[39m (20568): [36mStopping malloryWallet...[39m
- Γ£ô contract/test/veildrop.test.ts (8 tests) 115700ms
-     Γ£ô deploys the contract with the authorized credential commitment  21754ms
-     Γ£ô proves authorization with a valid credential without revealing it  23597ms
-     Γ£ô rejects a report from a reporter with an invalid credential  394ms
-     Γ£ô registers a report commitment after authorization  23635ms
-     Γ£ô allows a second authorized reporter to register a report  24023ms
-     Γ£ô updates a report status publicly without exposing identity  19711ms
-
- Test Files  1 passed (1)
-      Tests  8 passed (8)
-   Start at  17:16:14
-   Duration  121.19s (transform 103ms, setup 0ms, import 5.29s, tests 115.70s, environment 0ms)
-
+[17:28:08.731] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:28:08.792] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:28:08.851] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=false, unshielded=true, dust=false }[39m
+[17:28:08.896] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:08.950] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:09.010] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:09.066] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:09.138] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:09.200] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:09.255] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=false }[39m
+[17:28:09.295] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=true }[39m
+[17:28:38.295] [32mINFO[39m (36392): [36mWallet synced state emission: { shielded=true, unshielded=true, dust=true }[39m
+[17:28:38.295] [32mINFO[39m (36392): [36mWallet synced state emission (synced=true): { shielded=true, unshielded=true, dust=true }[39m
+[17:28:38.295] [32mINFO[39m (36392): [36mSync complete[39m
+[17:28:38.296] [32mINFO[39m (36392): [36mWallet balances after sync - Shielded: {"0000000000000000000000000000000000000000000000000000000000000000":"250000000000000","0000000000000000000000000000000000000000000000000000000000000002":"50000000000000","0000000000000000000000000000000000000000000000000000000000000001":"50000000000000"}, Unshielded: {"0000000000000000000000000000000000000000000000000000000000000000":"250000000000000"}, Dust: "1250000000000000000000000"[39m
+[17:28:38.297] [32mINFO[39m (36392): [36mYour wallet NIGHT balance is: 250000000000000[39m
