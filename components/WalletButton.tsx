@@ -9,6 +9,7 @@ export function WalletButton() {
     connectWallet,
     disconnectWallet,
     networkLabel,
+    connectingStep,
   } = useVeilDrop();
 
   if (walletStatus === 'detecting') {
@@ -38,7 +39,7 @@ export function WalletButton() {
     return (
       <button type="button" disabled className="btn-secondary">
         <span className="h-2 w-2 animate-pulse rounded-full bg-neon" />
-        Connecting…
+        {connectingStep ?? 'Connecting…'}
       </button>
     );
   }

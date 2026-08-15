@@ -22,6 +22,7 @@ export type VeilDropContextValue = {
   readonly networkId: string;
   readonly walletStatus: WalletStatus;
   readonly walletError: string | null;
+  readonly connectingStep: string | null;
   readonly address: string | null;
   readonly connectWallet: () => Promise<void>;
   readonly disconnectWallet: () => void;

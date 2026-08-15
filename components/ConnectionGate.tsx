@@ -11,7 +11,7 @@ export function ConnectionGate({
   title?: string;
   hint?: string;
 }) {
-  const { walletStatus, connectWallet, walletError } = useVeilDrop();
+  const { walletStatus, connectWallet, walletError, connectingStep } = useVeilDrop();
 
   if (walletStatus !== 'connected') {
     return (
@@ -25,14 +25,24 @@ export function ConnectionGate({
             ? 'No Midnight Lace wallet was detected. Install the Lace extension, enable Midnight, and refresh.'
             : walletStatus === 'detecting'
               ? 'Detecting your Midnight Lace wallet…'
-              : 'Connect your Lace wallet to continue. Make sure Lace is unlocked and Midnight is enabled in Lace settings.'}
+              : walletStatus === 'connecting'
+                ? 'A Lace popup should appear — approve the connection to continue. If no popup appears, make sure Lace is unlocked and Midnight is enabled in Lace settings.'
+                : 'Connect your Lace wallet to continue. Make sure Lace is unlocked and Midnight is enabled in Lace settings.'}
         </p>
+        {connectingStep && (
+          <p className="mono mt-3 text-xs text-neon">{connectingStep}</p>
+        )}
         {walletError && (
           <p className="mono mt-3 break-words rounded-lg border border-danger/30 bg-danger/10 p-2 text-xs text-danger">
             {walletError}
           </p>
         )}
-        {walletStatus !== 'no-wallet' && walletStatus !== 'detecting' && (
+        {walletStatus === 'connecting' ? (
+          <button type="button" disabled className="btn-secondary mt-5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-neon" />
+            Connecting…
+          </button>
+        ) : walletStatus !== 'no-wallet' && walletStatus !== 'detecting' ? (
           <button
             type="button"
             onClick={() => void connectWallet()}
@@ -40,7 +50,7 @@ export function ConnectionGate({
           >
             Connect Lace Wallet
           </button>
-        )}
+        ) : null}
       </div>
     );
   }

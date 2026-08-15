@@ -3,7 +3,7 @@
 import { Buffer } from 'buffer';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Subscription } from 'rxjs';
-import type { ConnectedAPI } from '@midnight-ntwrk/dapp-connector-api';
+import type { ConnectedAPI, ConnectionStatus } from '@midnight-ntwrk/dapp-connector-api';
 import { submitCallTx } from '@midnight-ntwrk/midnight-js-contracts';
 import { indexerPublicDataProvider } from '@midnight-ntwrk/midnight-js-indexer-public-data-provider';
 import { setNetworkId } from '@midnight-ntwrk/midnight-js-network-id';
@@ -65,6 +65,9 @@ const toMessage = (err: unknown): string => {
   }
 };
 
+const sleep = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 const withTimeout = async <T,>(
   promise: Promise<T>,
   ms: number,
@@ -78,6 +81,62 @@ const withTimeout = async <T,>(
     );
   });
   return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId));
+};
+
+const CONNECT_TIMEOUT_MS = 30_000;
+const STATUS_POLL_TIMEOUT_MS = 20_000;
+const PROVIDERS_TIMEOUT_MS = 30_000;
+const ADDRESS_TIMEOUT_MS = 10_000;
+
+/**
+ * Waits until the wallet reports an established connection to the expected
+ * network. Polls `getConnectionStatus()` because the wallet may need a moment
+ * to flip to "connected" after the user approves the popup, and nudges Lace
+ * with `hintUsage()` once so it surfaces a permission prompt if none appeared.
+ */
+const waitForWalletConnection = async (
+  api: ConnectedAPI,
+  expectedNetworkId: string,
+  networkLabel: string,
+): Promise<void> => {
+  const deadline = Date.now() + STATUS_POLL_TIMEOUT_MS;
+  let hintAttempted = false;
+  let lastStatus: ConnectionStatus | null = null;
+  while (Date.now() < deadline) {
+    const remaining = Math.max(1_000, deadline - Date.now());
+    const status = await withTimeout(
+      api.getConnectionStatus(),
+      Math.min(5_000, remaining),
+      'Connection status check',
+    );
+    lastStatus = status;
+    if (status.status === 'connected') {
+      if (status.networkId !== expectedNetworkId) {
+        throw new Error(
+          `Network ID mismatch: DApp expects "${expectedNetworkId}", but your wallet is connected to "${status.networkId}". Open Lace and switch to ${networkLabel}, then retry.`,
+        );
+      }
+      return;
+    }
+    if (!hintAttempted && typeof api.hintUsage === 'function') {
+      hintAttempted = true;
+      try {
+        console.info('[VeilDrop] Requesting wallet permissions');
+        await withTimeout(
+          api.hintUsage(['getUnshieldedAddress', 'getConfiguration']),
+          5_000,
+          'Wallet permission prompt',
+        );
+      } catch {
+        // hintUsage is optional; some wallets reject when no prompt is pending.
+      }
+    }
+    await sleep(750);
+  }
+  console.error('[VeilDrop] Wallet never reported connected. Last status:', lastStatus);
+  throw new Error(
+    `Wallet connection was not established in time. Make sure Lace is unlocked, is on the ${networkLabel} network, and approve the connection popup when it appears, then try again.`,
+  );
 };
 
 const getOrCreateReporterSecret = (): Uint8Array => {
@@ -117,6 +176,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     'detecting' | 'no-wallet' | 'ready' | 'connecting' | 'connected'
   >('detecting');
   const [walletError, setWalletError] = useState<string | null>(null);
+  const [connectingStep, setConnectingStep] = useState<string | null>(null);
   const [address, setAddress] = useState<string | null>(null);
   const [deploymentStatus, setDeploymentStatus] = useState<
     'idle' | 'connecting' | 'deploying' | 'deployed' | 'failed'
@@ -209,6 +269,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
   const connectWallet = useCallback(async () => {
     setWalletStatus('connecting');
     setWalletError(null);
+    setConnectingStep('Waiting for approval in the Lace popup…');
     try {
       const initial = getFirstCompatibleWallet();
       if (!initial) {
@@ -219,17 +280,21 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       }
       console.info('[VeilDrop] Connecting wallet', initial.name, 'apiVersion=', initial.apiVersion, 'network=', network.networkId);
       setNetworkId(network.networkId);
-      let api;
+      let api: ConnectedAPI;
       try {
         api = await withTimeout(
           initial.connect(network.networkId),
-          30_000,
+          CONNECT_TIMEOUT_MS,
           'Wallet connection',
         );
       } catch (err) {
         console.error('[VeilDrop] Wallet connect failed', err);
-        const message = toMessage(err);
-        if (message.toLowerCase().includes('network id mismatch')) {
+        const message = toMessage(err).toLowerCase();
+        if (
+          message.includes('network id mismatch') ||
+          message.includes('network mismatch') ||
+          message.includes('different network')
+        ) {
           throw new Error(
             `Network ID mismatch: DApp expects "${network.networkId}", but your wallet is on a different network. Open Lace and switch to ${network.label}, then retry.`,
           );
@@ -237,37 +302,28 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         throw err;
       }
       console.info('[VeilDrop] Connected, checking status');
-      const connectionStatus = await withTimeout(
-        api.getConnectionStatus(),
-        10_000,
-        'Connection status check',
-      );
-      console.info('[VeilDrop] Connection status', connectionStatus);
-      if (connectionStatus.status !== 'connected') {
-        throw new Error('Wallet connection was not established.');
-      }
-      if (connectionStatus.networkId !== network.networkId) {
-        throw new Error(
-          `Network ID mismatch: DApp expects "${network.networkId}", but wallet is connected to "${connectionStatus.networkId}". Open Lace and switch to ${network.label}.`,
-        );
-      }
       connectedApiRef.current = api;
-      console.info('[VeilDrop] Building providers');
+      setConnectingStep('Verifying wallet connection…');
+      await waitForWalletConnection(api, network.networkId, network.label);
+
+      setConnectingStep('Initializing contract providers…');
       const providers = await withTimeout(
         buildBrowserProviders(api),
-        30_000,
+        PROVIDERS_TIMEOUT_MS,
         'Building wallet providers',
       );
       providersRef.current = providers;
       console.info('[VeilDrop] Fetching unshielded address');
+      setConnectingStep('Fetching your wallet address…');
       const { unshieldedAddress } = await withTimeout(
         api.getUnshieldedAddress(),
-        10_000,
+        ADDRESS_TIMEOUT_MS,
         'Fetching wallet address',
       );
       console.info('[VeilDrop] Wallet connected successfully', unshieldedAddress);
       setAddress(unshieldedAddress);
       setWalletStatus('connected');
+      setConnectingStep(null);
       const existing = resolveContractAddress();
       if (existing) {
         setContractAddress(existing);
@@ -280,6 +336,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       console.error('[VeilDrop] Connection error', err);
       setWalletError(toMessage(err));
       setWalletStatus('ready');
+      setConnectingStep(null);
     }
   }, [network, setContractAddress, startReports]);
 
@@ -287,6 +344,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     connectedApiRef.current = null;
     providersRef.current = null;
     setAddress(null);
+    setConnectingStep(null);
     setWalletStatus(getFirstCompatibleWallet() ? 'ready' : 'no-wallet');
     setDeploymentStatus('idle');
   }, []);
@@ -440,6 +498,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       networkId: network.networkId,
       walletStatus,
       walletError,
+      connectingStep,
       address,
       connectWallet,
       disconnectWallet,
@@ -461,6 +520,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       network,
       walletStatus,
       walletError,
+      connectingStep,
       address,
       connectWallet,
       disconnectWallet,
