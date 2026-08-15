@@ -190,7 +190,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         const message = toMessage(err);
         if (message.toLowerCase().includes('network id mismatch')) {
           throw new Error(
-            `Network ID mismatch: DApp expects "${network.networkId}", but your wallet is on a different network. Open Lace and switch to Midnight ${network.label}, then retry.`,
+            `Network ID mismatch: DApp expects "${network.networkId}", but your wallet is on a different network. Open Lace and switch to ${network.label}, then retry.`,
           );
         }
         throw err;
@@ -201,7 +201,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       }
       if (connectionStatus.networkId !== network.networkId) {
         throw new Error(
-          `Network ID mismatch: DApp expects "${network.networkId}", but wallet is connected to "${connectionStatus.networkId}". Open Lace and switch to Midnight ${network.label}.`,
+          `Network ID mismatch: DApp expects "${network.networkId}", but wallet is connected to "${connectionStatus.networkId}". Open Lace and switch to ${network.label}.`,
         );
       }
       connectedApiRef.current = api;
