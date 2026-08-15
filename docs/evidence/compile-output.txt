@@ -1,0 +1,36 @@
+﻿== VeilDrop — compact compile output (recorded 2026-08-15) ==
+
+command     : compact compile src/main.compact managed/veildrop
+compiler    : 0.31.1
+language    : 0.23.0
+runtime     : 0.16.0
+
+Circuits:
+  [pure]   reporterPseudonym
+  [pure]   credentialCommitment
+  [prove]  proveAuthorization
+  [prove]  submitReport
+  [prove]  updateReportStatus
+
+Public ledger state:
+  [pub]  authorizedCredentialHash (Cell)
+  [pub]  nextReportId (Counter)
+  [pub]  reports (Map)
+
+Generated managed/veildrop:
+  contract\managed\veildrop\compiler\contract-info.json  (4.5 KB)
+  contract\managed\veildrop\contract\index.d.ts  (4 KB)
+  contract\managed\veildrop\contract\index.js  (48.5 KB)
+  contract\managed\veildrop\contract\index.js.map  (2.1 KB)
+  contract\managed\veildrop\keys\proveAuthorization.prover  (5078.9 KB)
+  contract\managed\veildrop\keys\proveAuthorization.verifier  (2.1 KB)
+  contract\managed\veildrop\keys\submitReport.prover  (5079.9 KB)
+  contract\managed\veildrop\keys\submitReport.verifier  (2.1 KB)
+  contract\managed\veildrop\keys\updateReportStatus.prover  (73.8 KB)
+  contract\managed\veildrop\keys\updateReportStatus.verifier  (1.3 KB)
+  contract\managed\veildrop\zkir\proveAuthorization.bzkir  (0.2 KB)
+  contract\managed\veildrop\zkir\proveAuthorization.zkir  (2.2 KB)
+  contract\managed\veildrop\zkir\submitReport.bzkir  (0.3 KB)
+  contract\managed\veildrop\zkir\submitReport.zkir  (5.2 KB)
+  contract\managed\veildrop\zkir\updateReportStatus.bzkir  (0.3 KB)
+  contract\managed\veildrop\zkir\updateReportStatus.zkir  (5.1 KB)

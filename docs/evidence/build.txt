@@ -1,0 +1,82 @@
+﻿
+> veildrop@0.1.0 build
+> npm run assets && next build --webpack
+
+
+> veildrop@0.1.0 assets
+> node scripts/copy-assets.mjs
+
+[assets] Copied C:\Users\prita\Desktop\Veildrop\contract\managed\veildrop\keys -> C:\Users\prita\Desktop\Veildrop\public\keys
+[assets] Copied C:\Users\prita\Desktop\Veildrop\contract\managed\veildrop\zkir -> C:\Users\prita\Desktop\Veildrop\public\zkir
+Γû▓ Next.js 16.3.1 (webpack)
+Γ£ô Running next.config.ts took 44ms
+
+  Creating an optimized production build ...
+node.exe : ΓÜá Compiled with warnings in 6.2s
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓÜá Compiled with warnings in 6.2s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./node_modules/@midnight-ntwrk/onchain-runtime-v3/midnight_onchain_runtime_wasm.js
+The generated code contains 'async/await' because this module is using "topLevelAwait".
+However, your target environment does not appear to support 'async/await'.
+As a result, the code may not run as expected or may cause runtime errors.
+
+Import trace for requested module:
+./node_modules/@midnight-ntwrk/onchain-runtime-v3/midnight_onchain_runtime_wasm.js
+./node_modules/@midnight-ntwrk/midnight-js-protocol/dist/onchain-runtime.mjs
+./node_modules/@midnight-ntwrk/midnight-js-contracts/dist/index.mjs
+./components/WalletProvider.tsx
+./components/MidnightBoundary.tsx
+
+./node_modules/@midnight-ntwrk/ledger-v8/midnight_ledger_wasm_bg.wasm
+The generated code contains 'async/await' because this module is using "asyncWebAssembly".
+However, your target environment does not appear to support 'async/await'.
+As a result, the code may not run as expected or may cause runtime errors.
+
+Import trace for requested module:
+./node_modules/@midnight-ntwrk/ledger-v8/midnight_ledger_wasm_bg.wasm
+./node_modules/@midnight-ntwrk/ledger-v8/midnight_ledger_wasm.js
+./node_modules/@midnight-ntwrk/midnight-js-protocol/dist/ledger.mjs
+./lib/midnight/providers.ts
+./components/WalletProvider.tsx
+./components/MidnightBoundary.tsx
+
+./node_modules/@midnight-ntwrk/onchain-runtime-v3/midnight_onchain_runtime_wasm_bg.wasm
+The generated code contains 'async/await' because this module is using "asyncWebAssembly".
+However, your target environment does not appear to support 'async/await'.
+As a result, the code may not run as expected or may cause runtime errors.
+
+Import trace for requested module:
+./node_modules/@midnight-ntwrk/onchain-runtime-v3/midnight_onchain_runtime_wasm_bg.wasm
+./node_modules/@midnight-ntwrk/onchain-runtime-v3/midnight_onchain_runtime_wasm.js
+./node_modules/@midnight-ntwrk/midnight-js-protocol/dist/onchain-runtime.mjs
+./node_modules/@midnight-ntwrk/midnight-js-contracts/dist/index.mjs
+./components/WalletProvider.tsx
+./components/MidnightBoundary.tsx
+
+  Running TypeScript ...
+  Finished TypeScript in 5.2s ...
+  Collecting page data using 8 workers ...
+  Generating static pages using 8 workers (0/7) ...
+  Generating static pages using 8 workers (1/7) 
+  Generating static pages using 8 workers (3/7) 
+  Generating static pages using 8 workers (5/7) 
+Γ£ô Generating static pages using 8 workers (7/7) in 1188ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /dashboard
+Γö£ Γùï /investigator
+Γö£ Γùï /report
+Γöö Γùï /verify
+
+
+Γùï  (Static)  prerendered as static content
+

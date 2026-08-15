@@ -1,5 +1,7 @@
 # VeilDrop
 
+[![CI](https://github.com/PRITAMfc/Veildrop/actions/workflows/ci.yml/badge.svg)](https://github.com/PRITAMfc/Veildrop/actions/workflows/ci.yml)
+
 A privacy-first whistleblower DApp on the **Midnight blockchain**. Reporters submit
 salted report commitments, investigators update report statuses, and the raw report —
 together with the reporter's identity credential — is never published.
@@ -7,6 +9,23 @@ together with the reporter's identity credential — is never published.
 Built with **Compact**, **midnight-js**, and **Next.js**. Everything a reporter sees is
 proven in zero knowledge on a public ledger while the sensitive details stay in the
 browser (and nowhere else).
+
+---
+
+## Initial product idea
+
+**Anonymous Feedback / Survey** (from the Midnight Academy idea list): let anyone submit
+sensitive feedback — a workplace violation, a safety concern, an anonymous survey
+response — with *verifiable participation but private content*. The Midnight public
+ledger records a one-way commitment of each submission and its status, so anyone can
+count and audit submissions; the substance of the feedback and the reporter's identity
+exist only inside zero-knowledge proofs in the reporter's browser and are never
+disclosed on-chain. VeilDrop is this idea applied to whistleblower reports: a category,
+a pseudonym, and a status are public; the report itself and the reporter's credential
+are not.
+
+See [`docs/product-proposal.md`](docs/product-proposal.md) for the full product
+proposal (Level 3).
 
 ---
 
@@ -89,6 +108,28 @@ reports.
 
 ## Deploying to Midnight Preprod
 
+### Option A — automated deploy script (recommended)
+
+1. Start a local proof server (proofs are generated locally; no public server exists):
+
+   ```bash
+   docker run -p 6300:6300 midnightntwrk/proof-server:8.1.0
+   ```
+
+2. Point the script at a funded Preprod wallet seed:
+
+   ```bash
+   $env:VEILDROP_SEED = '<64-char hex seed or mnemonic>'
+   npm run deploy:preprod
+   ```
+
+   The script builds the wallet from the seed, syncs against Preprod, requests a
+   faucet drip if the wallet is empty, deploys the contract with the demo credential
+   commitment, and prints the on-ledger `contractAddress`. Evidence is written to
+   `docs/preprod-deployment.md`.
+
+### Option B — deploy from the DApp
+
 1. Set your contract's authorized credential hash:
 
    ```bash
@@ -136,6 +177,8 @@ compose.yml                     # local devnet (proof-server / indexer / node)
 | `npm run build` | Production build (emits the onchain-runtime wasm) |
 | `npm run typecheck` | TypeScript check |
 | `npm run test:contract` | Contract integration tests against a local devnet |
+| `npm run test:app` | Application unit tests (commitment, credential, format helpers) |
+| `npm run deploy:preprod` | Deploy the contract to Midnight Preprod (needs `VEILDROP_SEED`) |
 | `npm run compile` | Recompile `main.compact` (requires the `compact` toolchain) |
 | `npm run env:up` / `env:down` | Start / stop the local devnet |
 

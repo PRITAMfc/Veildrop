@@ -1,0 +1,124 @@
+﻿
+> veildrop@0.1.0 test:contract
+> vitest run --config vitest.config.ts
+
+
+ RUN  v4.1.10 C:/Users/prita/Desktop/Veildrop
+
+node.exe : Sourcemap for "C:/Users/prita/Desktop/Veildrop/contract/managed/veildrop/contract/index.js" points to 
+missing source files
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Sourcemap for "...ng source files:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[17:16:20.414] [32mINFO[39m (20568): [36mInitializing wallet builder for undeployed[39m
+[17:16:20.519] [32mINFO[39m (20568): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":4654560},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
+[17:16:20.546] [32mINFO[39m (20568): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
+[17:16:20.546] [32mINFO[39m (20568): [36mStarting wallet...[39m
+[17:16:20.569] [32mINFO[39m (20568): [36mSyncing wallet...[39m
+[17:16:20.579] [32mINFO[39m (20568): [36mWallet sync [1]: shielded=false, unshielded=false, dust=false[39m
+[17:16:20.786] [32mINFO[39m (20568): [36mWallet sync [2]: shielded=false, unshielded=false, dust=false[39m
+[17:16:20.787] [32mINFO[39m (20568): [36mWallet sync [3]: shielded=false, unshielded=true, dust=false[39m
+[17:16:20.791] [32mINFO[39m (20568): [36mWallet sync [4]: shielded=false, unshielded=true, dust=false[39m
+[17:16:20.819] [32mINFO[39m (20568): [36mWallet sync [5]: shielded=false, unshielded=true, dust=false[39m
+2026-08-15 17:16:20        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+ws://127.0.0.1:9944/: 1000:: Normal Closure
+2026-08-15 17:16:20        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+ws://127.0.0.1:9944/: 1000:: Normal Closure
+[17:16:20.902] [32mINFO[39m (20568): [36mWallet sync [6]: shielded=false, unshielded=true, dust=false[39m
+[17:16:20.975] [32mINFO[39m (20568): [36mWallet sync [7]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.053] [32mINFO[39m (20568): [36mWallet sync [8]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.118] [32mINFO[39m (20568): [36mWallet sync [9]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.190] [32mINFO[39m (20568): [36mWallet sync [10]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.239] [32mINFO[39m (20568): [36mWallet sync [11]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.295] [32mINFO[39m (20568): [36mWallet sync [12]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.359] [32mINFO[39m (20568): [36mWallet sync [13]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.423] [32mINFO[39m (20568): [36mWallet sync [14]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.481] [32mINFO[39m (20568): [36mWallet sync [15]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.548] [32mINFO[39m (20568): [36mWallet sync [16]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.606] [32mINFO[39m (20568): [36mWallet sync [17]: shielded=true, unshielded=true, dust=false[39m
+[17:16:21.676] [32mINFO[39m (20568): [36mInitializing wallet builder for undeployed[39m
+[17:16:21.699] [32mINFO[39m (20568): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":5596368},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
+[17:16:21.671] [32mINFO[39m (20568): [36mWallet sync [18]: shielded=true, unshielded=true, dust=true[39m
+[17:16:21.671] [32mINFO[39m (20568): [36mWallet sync complete after 18 emissions[39m
+[17:16:21.712] [32mINFO[39m (20568): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
+[17:16:21.712] [32mINFO[39m (20568): [36mStarting wallet...[39m
+[17:16:21.718] [32mINFO[39m (20568): [36mSyncing wallet...[39m
+[17:16:21.721] [32mINFO[39m (20568): [36mWallet sync [1]: shielded=false, unshielded=false, dust=false[39m
+[17:16:21.778] [32mINFO[39m (20568): [36mWallet sync [2]: shielded=false, unshielded=false, dust=false[39m
+[17:16:21.800] [32mINFO[39m (20568): [36mWallet sync [3]: shielded=false, unshielded=false, dust=false[39m
+[17:16:21.800] [32mINFO[39m (20568): [36mWallet sync [4]: shielded=false, unshielded=false, dust=false[39m
+[17:16:21.801] [32mINFO[39m (20568): [36mWallet sync [5]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.857] [32mINFO[39m (20568): [36mWallet sync [6]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.867] [32mINFO[39m (20568): [36mWallet sync [7]: shielded=false, unshielded=true, dust=false[39m
+[17:16:21.997] [32mINFO[39m (20568): [36mWallet sync [8]: shielded=false, unshielded=true, dust=false[39m
+2026-08-15 17:16:22        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+ws://127.0.0.1:9944/: 1000:: Normal Closure
+[17:16:22.058] [32mINFO[39m (20568): [36mWallet sync [9]: shielded=false, unshielded=true, dust=false[39m
+2026-08-15 17:16:22        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+ws://127.0.0.1:9944/: 1000:: Normal Closure
+[17:16:22.114] [32mINFO[39m (20568): [36mWallet sync [10]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.174] [32mINFO[39m (20568): [36mWallet sync [11]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.241] [32mINFO[39m (20568): [36mWallet sync [12]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.301] [32mINFO[39m (20568): [36mWallet sync [13]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.374] [32mINFO[39m (20568): [36mWallet sync [14]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.437] [32mINFO[39m (20568): [36mWallet sync [15]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.513] [32mINFO[39m (20568): [36mWallet sync [16]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.582] [32mINFO[39m (20568): [36mWallet sync [17]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.648] [32mINFO[39m (20568): [36mWallet sync [18]: shielded=true, unshielded=true, dust=false[39m
+[17:16:22.712] [32mINFO[39m (20568): [36mWallet sync [19]: shielded=true, unshielded=true, dust=true[39m
+[17:16:22.712] [32mINFO[39m (20568): [36mWallet sync complete after 19 emissions[39m
+[17:16:22.717] [32mINFO[39m (20568): [36mProviders initialized, ready to test.[39m
+[17:16:44.454] [32mINFO[39m (20568): [36mContract deployed at: 7543aaf50279401f18f6d26e35b7ebf3b652844be9dcab89d66146262b0920bc[39m
+[17:17:08.063] [32mINFO[39m (20568): [36mAlice proved authorization.[39m
+[17:17:08.459] [32mINFO[39m (20568): [36mMallory (invalid credential) was rejected.[39m
+[17:17:32.088] [32mINFO[39m (20568): [36mAlice registered a report commitment.[39m
+[17:17:32.114] [32mINFO[39m (20568): [36mInitializing wallet builder for undeployed[39m
+[17:17:32.149] [32mINFO[39m (20568): [36mCreating dust wallet with params: {"indexerClientConnection":{"indexerHttpUrl":"http://127.0.0.1:8088/api/v4/graphql","indexerWsUrl":"ws://127.0.0.1:8088/api/v4/graphql/ws"},"provingServerUrl":"http://127.0.0.1:6300/","networkId":"undeployed","relayURL":"ws://127.0.0.1:9944/","txHistoryStorage":{"storage":{}},"costParameters":{"ledgerParams":{"__wbg_ptr":5558608},"additionalFeeOverhead":"1000","feeBlocksMargin":5}}[39m
+[17:17:32.159] [32mINFO[39m (20568): [36mWallet built from seed 00000000...; master seed: 00000000...[39m
+[17:17:32.159] [32mINFO[39m (20568): [36mStarting wallet...[39m
+[17:17:32.166] [32mINFO[39m (20568): [36mSyncing wallet...[39m
+[17:17:32.171] [32mINFO[39m (20568): [36mWallet sync [1]: shielded=false, unshielded=false, dust=false[39m
+[17:17:32.243] [32mINFO[39m (20568): [36mWallet sync [2]: shielded=false, unshielded=false, dust=false[39m
+[17:17:32.264] [32mINFO[39m (20568): [36mWallet sync [3]: shielded=false, unshielded=false, dust=false[39m
+[17:17:32.271] [32mINFO[39m (20568): [36mWallet sync [4]: shielded=false, unshielded=false, dust=false[39m
+[17:17:32.271] [32mINFO[39m (20568): [36mWallet sync [5]: shielded=false, unshielded=true, dust=false[39m
+[17:17:32.358] [32mINFO[39m (20568): [36mWallet sync [6]: shielded=false, unshielded=true, dust=false[39m
+2026-08-15 17:17:32        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+ws://127.0.0.1:9944/: 1000:: Normal Closure
+[17:17:32.450] [32mINFO[39m (20568): [36mWallet sync [7]: shielded=false, unshielded=true, dust=false[39m
+2026-08-15 17:17:32        RPC-CORE: subscribeRuntimeVersion(): RuntimeVersion:: disconnected from 
+ws://127.0.0.1:9944/: 1000:: Normal Closure
+[17:17:32.626] [32mINFO[39m (20568): [36mWallet sync [8]: shielded=false, unshielded=true, dust=false[39m
+[17:17:32.704] [32mINFO[39m (20568): [36mWallet sync [9]: shielded=false, unshielded=true, dust=false[39m
+[17:17:32.777] [32mINFO[39m (20568): [36mWallet sync [10]: shielded=true, unshielded=true, dust=false[39m
+[17:17:32.849] [32mINFO[39m (20568): [36mWallet sync [11]: shielded=true, unshielded=true, dust=false[39m
+[17:17:32.924] [32mINFO[39m (20568): [36mWallet sync [12]: shielded=true, unshielded=true, dust=false[39m
+[17:17:32.996] [32mINFO[39m (20568): [36mWallet sync [13]: shielded=true, unshielded=true, dust=false[39m
+[17:17:33.068] [32mINFO[39m (20568): [36mWallet sync [14]: shielded=true, unshielded=true, dust=false[39m
+[17:17:33.147] [32mINFO[39m (20568): [36mWallet sync [15]: shielded=true, unshielded=true, dust=false[39m
+[17:17:33.234] [32mINFO[39m (20568): [36mWallet sync [16]: shielded=true, unshielded=true, dust=false[39m
+[17:17:33.302] [32mINFO[39m (20568): [36mWallet sync [17]: shielded=true, unshielded=true, dust=false[39m
+[17:17:33.388] [32mINFO[39m (20568): [36mWallet sync [18]: shielded=true, unshielded=true, dust=false[39m
+[17:17:33.420] [32mINFO[39m (20568): [36mWallet sync [19]: shielded=true, unshielded=true, dust=true[39m
+[17:17:33.420] [32mINFO[39m (20568): [36mWallet sync complete after 19 emissions[39m
+[17:17:56.098] [32mINFO[39m (20568): [36mBob (valid credential, distinct secret) registered a report.[39m
+[17:18:15.839] [32mINFO[39m (20568): [36mReport #1 status updated to UNDER_INVESTIGATION.[39m
+[17:18:16.070] [32mINFO[39m (20568): [36mStatus update for a nonexistent report was rejected.[39m
+[17:18:16.071] [32mINFO[39m (20568): [36mStopping aliceWallet...[39m
+[17:18:16.090] [32mINFO[39m (20568): [36mStopping malloryWallet...[39m
+ Γ£ô contract/test/veildrop.test.ts (8 tests) 115700ms
+     Γ£ô deploys the contract with the authorized credential commitment  21754ms
+     Γ£ô proves authorization with a valid credential without revealing it  23597ms
+     Γ£ô rejects a report from a reporter with an invalid credential  394ms
+     Γ£ô registers a report commitment after authorization  23635ms
+     Γ£ô allows a second authorized reporter to register a report  24023ms
+     Γ£ô updates a report status publicly without exposing identity  19711ms
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  17:16:14
+   Duration  121.19s (transform 103ms, setup 0ms, import 5.29s, tests 115.70s, environment 0ms)
+

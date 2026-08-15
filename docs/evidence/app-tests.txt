@@ -1,0 +1,16 @@
+﻿
+> veildrop@0.1.0 test:app
+> vitest run --config vitest.config.app.ts
+
+
+ RUN  v4.1.10 C:/Users/prita/Desktop/Veildrop
+
+ Γ£ô lib/demo-credential.test.ts (3 tests) 3ms
+ Γ£ô lib/format.test.ts (6 tests) 4ms
+ Γ£ô lib/midnight/commitment.test.ts (6 tests) 10ms
+
+ Test Files  3 passed (3)
+      Tests  15 passed (15)
+   Start at  17:14:40
+   Duration  270ms (transform 101ms, setup 0ms, import 162ms, tests 17ms, environment 0ms)
+
