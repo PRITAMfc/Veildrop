@@ -1,0 +1,70 @@
+app/dashboard/page.tsx
+  h_7aa35c57e7bf7b 1-71
+app/globals.css
+  h_7aa35c57e7bf7b 1-116
+app/investigator/page.tsx
+  h_7aa35c57e7bf7b 1-128
+app/layout.tsx
+  h_7aa35c57e7bf7b 1-29
+app/page.tsx
+  h_7aa35c57e7bf7b 1-92
+app/report/page.tsx
+  h_7aa35c57e7bf7b 1-278
+app/verify/page.tsx
+  h_7aa35c57e7bf7b 1-206
+components/ConnectionGate.tsx
+  h_7aa35c57e7bf7b 1-49
+components/ContractDeployPanel.tsx
+  h_7aa35c57e7bf7b 1-87
+components/CredentialCard.tsx
+  h_7aa35c57e7bf7b 1-102
+components/Footer.tsx
+  h_7aa35c57e7bf7b 1-20
+components/MidnightBoundary.tsx
+  h_7aa35c57e7bf7b 1-12
+components/Navbar.tsx
+  h_7aa35c57e7bf7b 1-56
+components/PrivacyDiagram.tsx
+  h_7aa35c57e7bf7b 1-76
+components/ProofProgress.tsx
+  h_7aa35c57e7bf7b 1-89
+components/ReportCard.tsx
+  h_7aa35c57e7bf7b 1-55
+components/StatusBadge.tsx
+  h_7aa35c57e7bf7b 1-18
+components/WalletButton.tsx
+  h_7aa35c57e7bf7b 1-68
+components/WalletProvider.tsx
+  h_7aa35c57e7bf7b 1-413
+components/wallet-context.ts
+  h_7aa35c57e7bf7b 1-54
+lib/demo-credential.ts
+  h_7aa35c57e7bf7b 1-10
+lib/format.ts
+  h_7aa35c57e7bf7b 1-20
+lib/midnight/commitment.ts
+  h_7aa35c57e7bf7b 1-66
+lib/midnight/config.ts
+  h_7aa35c57e7bf7b 1-49
+lib/midnight/contract.ts
+  h_7aa35c57e7bf7b 1-113
+lib/midnight/in-memory-private-state-provider.ts
+  h_7aa35c57e7bf7b 1-56
+lib/midnight/ledger.ts
+  h_7aa35c57e7bf7b 1-95
+lib/midnight/providers.ts
+  h_7aa35c57e7bf7b 1-105
+lib/midnight/wallet.ts
+  h_7aa35c57e7bf7b 1-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "cb793ebad060e01be835ebe5a449b7da3ba5106d",
+  "prompts": {},
+  "humans": {
+    "h_7aa35c57e7bf7b": {
+      "author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
