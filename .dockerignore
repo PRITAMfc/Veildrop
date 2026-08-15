@@ -1,0 +1,8 @@
+.git
+.github
+node_modules
+.next
+veildrop-test-db
+logs
+npm-debug.log
+.env*
