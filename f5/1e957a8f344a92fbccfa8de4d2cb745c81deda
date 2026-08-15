@@ -1,0 +1,32 @@
+components/ConnectionGate.tsx
+  s_302cfe301cd30d::t_9bdfc77a943b32 14,28-30,32-34,40-45,53
+components/wallet-context.ts
+  s_302cfe301cd30d::t_ca60006d4b975b 25
+components/WalletProvider.tsx
+  s_302cfe301cd30d::t_dbc6c4de069a8e 272,283,287,292-297,306-309,312,317,320,326,339,347
+  s_302cfe301cd30d::t_31b5858675dce6 523
+  s_302cfe301cd30d::t_c631bec4c85078 6
+  s_302cfe301cd30d::t_173473dca1b5cd 501
+  s_302cfe301cd30d::t_b010de1dc26a1b 179
+  s_302cfe301cd30d::t_74c87fa509db38 68-70,86-139
+  s_302cfe301cd30d::t_5b0627baa5da09 140-141
+components/WalletButton.tsx
+  s_302cfe301cd30d::t_03ea6ee2437707 42
+  s_302cfe301cd30d::t_b5bc55df523c25 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f51e957a8f344a92fbccfa8de4d2cb745c81deda",
+  "prompts": {},
+  "sessions": {
+    "s_302cfe301cd30d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ff92d2386ffe2sYWl5IsR5W9nY",
+        "model": "unknown"
+      },
+      "human_author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
