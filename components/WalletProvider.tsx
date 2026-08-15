@@ -162,8 +162,26 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     } catch {
       setPseudonym(null);
     }
-    const wallet = getFirstCompatibleWallet();
-    setWalletStatus(wallet ? 'ready' : 'no-wallet');
+    const wallets = listWallets();
+    if (wallets.length === 0) {
+      if (typeof window !== 'undefined' && !window.midnight) {
+        setWalletError('No Midnight wallet detected. Install the Lace browser extension, enable Midnight, and refresh.');
+      } else if (typeof window !== 'undefined' && window.midnight) {
+        const installed = Object.values(window.midnight).filter(
+          (w) => w && typeof w === 'object' && typeof (w as { connect?: unknown }).connect === 'function',
+        );
+        const versions = installed
+          .map((w) => (w as { apiVersion?: string }).apiVersion)
+          .filter(Boolean);
+        setWalletError(
+          `Midnight wallet detected, but version is incompatible. Detected API versions: ${versions.join(', ') || 'unknown'}. Expected 4.x. Please update Lace.`,
+        );
+      }
+      setWalletStatus('no-wallet');
+    } else {
+      setWalletStatus('ready');
+      setWalletError(null);
+    }
     const existing = resolveContractAddress();
     if (existing) {
       setContractAddress(existing);
