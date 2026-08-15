@@ -368,7 +368,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       const providers = providersRef.current;
       const address = contractAddressRef.current;
       if (!providers || !address) {
-        return { ok: false, error: 'Connect your wallet and a contract first.' };
+        return { ok: false, error: 'Deploy a contract first.' };
       }
       try {
         const saltHex = makeCommitmentSalt();
@@ -421,7 +421,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       const providers = providersRef.current;
       const address = contractAddressRef.current;
       if (!providers || !address) {
-        return { ok: false, error: 'Connect your wallet and a contract first.' };
+        return { ok: false, error: 'Deploy a contract first.' };
       }
       try {
         await updateVeilDropReportStatus(
@@ -448,7 +448,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       return {
         ok: false,
         pseudonym: '',
-        error: 'Connect your wallet and a contract first.',
+        error: 'Deploy a contract first.',
       };
     }
     try {

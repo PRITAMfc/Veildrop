@@ -8,7 +8,7 @@ import { REPORT_STATUSES } from '../../lib/midnight/ledger';
 import type { ReportStatusId, ReportView, SubmitOutcome } from '../../types';
 
 function StatusRow({ report }: { report: ReportView }) {
-  const { updateStatus, walletStatus } = useVeilDrop();
+  const { updateStatus, walletStatus, contractAddress, deploymentStatus } = useVeilDrop();
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<SubmitOutcome | null>(null);
 
@@ -45,7 +45,7 @@ function StatusRow({ report }: { report: ReportView }) {
         </div>
       </dl>
 
-      {walletStatus === 'connected' ? (
+      {walletStatus === 'connected' && contractAddress && deploymentStatus === 'deployed' ? (
         <div className="flex flex-wrap items-center gap-2">
           {REPORT_STATUSES.filter((s) => s.id !== report.status).map((status) => (
             <button
@@ -69,7 +69,7 @@ function StatusRow({ report }: { report: ReportView }) {
           ) : null}
         </div>
       ) : (
-        <p className="text-xs text-mist">Connect a wallet to update status.</p>
+        <p className="text-xs text-mist">Deploy a contract to update statuses.</p>
       )}
     </article>
   );

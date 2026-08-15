@@ -47,7 +47,9 @@ export default function ReportPage() {
     form.title.trim().length >= 3 &&
     form.description.trim().length >= 10 &&
     form.acknowledge &&
-    !submitting;
+    !submitting &&
+    contractAddress &&
+    deploymentStatus === 'deployed';
 
   const submit = async () => {
     if (!readyToSubmit) return;
