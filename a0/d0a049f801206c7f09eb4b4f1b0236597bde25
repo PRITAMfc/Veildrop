@@ -1,0 +1,41 @@
+scripts/copy-managed.mjs
+  s_e378d0141ac016::t_6c81c528d442ca 1-12
+.env.example
+  s_e378d0141ac016::t_0dfaab793df772 29-42
+vitest.config.app.ts
+  s_e378d0141ac016::t_f4063d5ce2c265 1-11
+lib/format.test.ts
+  s_e378d0141ac016::t_eb8a9a1d0fe84a 1-36
+package.json
+  s_e378d0141ac016::t_6988691c0f41a5 21
+  s_e378d0141ac016::t_c7d329eaefa395 22
+  s_e378d0141ac016::t_33044da740ced5 20
+contract/package.json
+  s_e378d0141ac016::t_0ffb0dc3f42f73 17
+lib/midnight/commitment.test.ts
+  s_e378d0141ac016::t_cbcd594d2dc362 1-90
+vercel.json
+  s_e378d0141ac016::t_54ce2162674a32 2-3,5
+.github/workflows/ci.yml
+  s_e378d0141ac016::t_ceae5d0f14968c 19
+lib/demo-credential.test.ts
+  s_e378d0141ac016::t_c9071b83beb7b2 1-27
+scripts/deploy-preprod.mjs
+  s_e378d0141ac016::t_0c182007608f53 1-311
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a0d0a049f801206c7f09eb4b4f1b0236597bde25",
+  "prompts": {},
+  "sessions": {
+    "s_e378d0141ac016": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ffb4b1e38ffelv1S56NkkzBdSK",
+        "model": "unknown"
+      },
+      "human_author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
