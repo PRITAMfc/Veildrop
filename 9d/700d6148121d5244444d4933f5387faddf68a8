@@ -1,0 +1,16 @@
+components/WalletProvider.tsx
+  h_96f0270f72c861 215,220,230,239,245,255,262,268,280
+lib/midnight/wallet.ts
+  h_96f0270f72c861 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "9d700d6148121d5244444d4933f5387faddf68a8",
+  "prompts": {},
+  "humans": {
+    "h_96f0270f72c861": {
+      "author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
