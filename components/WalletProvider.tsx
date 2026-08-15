@@ -36,6 +36,7 @@ import {
 } from '../lib/midnight/contract';
 import { ledgerToReports, REPORT_CATEGORIES, REPORT_STATUSES } from '../lib/midnight/ledger';
 import { buildBrowserProviders, type VeilDropProviders } from '../lib/midnight/providers';
+import { withTimeout } from '../lib/midnight/timeout';
 import { listWallets } from '../lib/midnight/wallet';
 import { getFirstCompatibleWallet } from '../lib/midnight/wallet';
 import type {
@@ -67,21 +68,6 @@ const toMessage = (err: unknown): string => {
 
 const sleep = (ms: number): Promise<void> =>
   new Promise((resolve) => setTimeout(resolve, ms));
-
-const withTimeout = async <T,>(
-  promise: Promise<T>,
-  ms: number,
-  label: string,
-): Promise<T> => {
-  let timeoutId: ReturnType<typeof setTimeout>;
-  const timeoutPromise = new Promise<never>((_, reject) => {
-    timeoutId = setTimeout(
-      () => reject(new Error(`${label} timed out after ${ms / 1000}s. Please approve the Lace popup or try again.`)),
-      ms,
-    );
-  });
-  return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId));
-};
 
 const CONNECT_TIMEOUT_MS = 30_000;
 const STATUS_POLL_TIMEOUT_MS = 20_000;

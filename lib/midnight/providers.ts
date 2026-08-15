@@ -21,7 +21,7 @@ import type {
 } from '@midnight-ntwrk/midnight-js-types';
 import type { VeilDropPrivateState } from '../../contract/src/witnesses';
 import { inMemoryPrivateStateProvider } from './in-memory-private-state-provider';
-import { getVeilDropNetworkId } from './config';
+import { getNetworkConfig } from './config';
 
 export type VeilDropCircuitKeys =
   | 'proveAuthorization'
@@ -37,19 +37,17 @@ export type VeilDropProviders = MidnightProviders<
 /**
  * A read-only public data provider for querying ledger state without a wallet.
  */
-export const createReadOnlyPublicDataProvider = () =>
-  indexerPublicDataProvider(
-    getVeilDropNetworkId() === 'preprod'
-      ? 'https://indexer.preprod.midnight.network/api/v4/graphql'
-      : 'http://127.0.0.1:8088/api/v4/graphql',
-    getVeilDropNetworkId() === 'preprod'
-      ? 'wss://indexer.preprod.midnight.network/api/v4/graphql/ws'
-      : 'ws://127.0.0.1:8088/api/v4/graphql/ws',
-  );
+export const createReadOnlyPublicDataProvider = () => {
+  const { indexerUri, indexerWsUri } = getNetworkConfig();
+  return indexerPublicDataProvider(indexerUri, indexerWsUri);
+};
 
 /**
  * Builds the full set of providers used to submit and deploy transactions,
  * wiring the connected Lace wallet as both the balancing and submission layer.
+ * The public data provider is pointed at the DApp's own network indexer so
+ * that deployment/report confirmation and the dashboard stay consistent,
+ * instead of whatever indexer the wallet happens to be configured with.
  */
 export async function buildBrowserProviders(
   connectedAPI: ConnectedAPI,
@@ -66,15 +64,13 @@ export async function buildBrowserProviders(
     window.location.origin,
     fetch.bind(window),
   );
+  const { indexerUri, indexerWsUri } = getNetworkConfig();
 
   return {
     privateStateProvider: inMemoryPrivateStateProvider(),
     zkConfigProvider,
     proofProvider: httpClientProofProvider(proofServerUri, zkConfigProvider),
-    publicDataProvider: indexerPublicDataProvider(
-      config.indexerUri,
-      config.indexerWsUri,
-    ),
+    publicDataProvider: indexerPublicDataProvider(indexerUri, indexerWsUri),
     walletProvider: {
       getCoinPublicKey: () => shieldedAddresses.shieldedCoinPublicKey,
       getEncryptionPublicKey: () =>

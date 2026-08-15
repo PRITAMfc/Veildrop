@@ -9,6 +9,7 @@ import {
 } from '../../contract/managed/veildrop/contract/index';
 import type { ProofStage } from '../../types';
 import type { VeilDropProviders } from './providers';
+import { withTimeout } from './timeout';
 
 export const PRIVATE_STATE_ID = 'veildrop';
 
@@ -19,6 +20,27 @@ const idStage = (step: number, label: string, running = true): ProofStage => ({
   label,
   running,
 });
+
+const toMessage = (err: unknown): string => {
+  if (err instanceof Error) return err.message;
+  if (typeof err === 'string') return err;
+  try {
+    return JSON.stringify(err);
+  } catch {
+    return 'Unknown error';
+  }
+};
+
+const DEPLOY_TIMEOUT_MS = 180_000;
+const SUBMIT_TIMEOUT_MS = 180_000;
+
+export const DEPLOYMENT_STEPS = [
+  { step: 1, label: 'Preparing' },
+  { step: 2, label: 'Generating proof' },
+  { step: 3, label: 'Signing in Lace' },
+  { step: 4, label: 'Indexer confirm' },
+  { step: 5, label: 'On-chain' },
+];
 
 export async function deployVeilDropContract(
   providers: VeilDropProviders,
@@ -32,13 +54,30 @@ export async function deployVeilDropContract(
     reporterSecret,
     credentialSecret,
   );
-  onProgress(idStage(4, 'Building the deployment transaction', true));
-  const deployed = await deployContract<Contract>(providers, {
-    compiledContract: CompiledVeilDropContract,
-    privateStateId: PRIVATE_STATE_ID,
-    initialPrivateState: privateState,
-    args: [authorizedCredentialHash],
-  });
+  onProgress(
+    idStage(
+      2,
+      'Generating the deployment proof — approve the Lace popup to sign',
+      true,
+    ),
+  );
+  let deployed;
+  try {
+    deployed = await withTimeout(
+      deployContract<Contract>(providers, {
+        compiledContract: CompiledVeilDropContract,
+        privateStateId: PRIVATE_STATE_ID,
+        initialPrivateState: privateState,
+        args: [authorizedCredentialHash],
+      }),
+      DEPLOY_TIMEOUT_MS,
+      'Contract deployment',
+    );
+  } catch (err) {
+    throw new Error(
+      `${toMessage(err)} If you already approved the transaction in Lace, the deployment may still be confirming on the Midnight indexer — check the dashboard in a minute. Otherwise, make sure Lace is on the correct network and has a working proof server/indexer, then retry.`,
+    );
+  }
   const address = deployed.deployTxData.public.contractAddress;
   providers.privateStateProvider.setContractAddress(address);
   await providers.privateStateProvider.set(PRIVATE_STATE_ID, privateState);
@@ -75,13 +114,24 @@ export async function submitVeilDropReport(
     idStage(3, 'Generating the zero-knowledge proof on the proof server', true),
   );
 
-  const txData = await submitCallTx<Contract, 'submitReport'>(providers, {
-    compiledContract: CompiledVeilDropContract,
-    contractAddress: asContractAddress(contractAddress),
-    privateStateId: PRIVATE_STATE_ID,
-    circuitId: 'submitReport',
-    args: [args.commitment, args.category, args.timestamp],
-  });
+  let txData;
+  try {
+    txData = await withTimeout(
+      submitCallTx<Contract, 'submitReport'>(providers, {
+        compiledContract: CompiledVeilDropContract,
+        contractAddress: asContractAddress(contractAddress),
+        privateStateId: PRIVATE_STATE_ID,
+        circuitId: 'submitReport',
+        args: [args.commitment, args.category, args.timestamp],
+      }),
+      SUBMIT_TIMEOUT_MS,
+      'Report submission',
+    );
+  } catch (err) {
+    throw new Error(
+      `${toMessage(err)} If you already approved the transaction in Lace, it may still be confirming on the indexer — the report will appear on the dashboard shortly.`,
+    );
+  }
 
   onProgress(idStage(4, 'Transaction balanced in your Lace wallet', false));
   onProgress(idStage(5, 'Report submitted to the Midnight network', false));
@@ -102,12 +152,16 @@ export async function updateVeilDropReportStatus(
   );
   providers.privateStateProvider.setContractAddress(asContractAddress(contractAddress));
   await providers.privateStateProvider.set(PRIVATE_STATE_ID, privateState);
-  const txData = await submitCallTx<Contract, 'updateReportStatus'>(providers, {
-    compiledContract: CompiledVeilDropContract,
-    contractAddress: asContractAddress(contractAddress),
-    privateStateId: PRIVATE_STATE_ID,
-    circuitId: 'updateReportStatus',
-    args: [reportId, newStatus],
-  });
+  const txData = await withTimeout(
+    submitCallTx<Contract, 'updateReportStatus'>(providers, {
+      compiledContract: CompiledVeilDropContract,
+      contractAddress: asContractAddress(contractAddress),
+      privateStateId: PRIVATE_STATE_ID,
+      circuitId: 'updateReportStatus',
+      args: [reportId, newStatus],
+    }),
+    SUBMIT_TIMEOUT_MS,
+    'Report status update',
+  );
   return { txId: txData.public.txId };
 }

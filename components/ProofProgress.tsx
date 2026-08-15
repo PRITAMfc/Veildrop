@@ -2,7 +2,12 @@
 
 import type { ProofStage } from '../types';
 
-const STEPS = [
+export type PipelineStep = {
+  step: number;
+  label: string;
+};
+
+export const REPORT_PIPELINE_STEPS: PipelineStep[] = [
   { step: 1, label: 'Hash sealed' },
   { step: 2, label: 'Credential proven' },
   { step: 3, label: 'ZK proof generated' },
@@ -10,9 +15,17 @@ const STEPS = [
   { step: 5, label: 'On-chain' },
 ];
 
-export function ProofProgress({ stage }: { stage: ProofStage }) {
-  const activeStep = Math.max(1, Math.min(5, stage.step));
+export function ProofProgress({
+  stage,
+  steps = REPORT_PIPELINE_STEPS,
+}: {
+  stage: ProofStage;
+  steps?: PipelineStep[];
+}) {
+  const activeStep = Math.max(1, Math.min(steps.length, stage.step));
   const done = !stage.running;
+  const showVerifiedCard =
+    done && activeStep === steps.length && steps === REPORT_PIPELINE_STEPS;
 
   return (
     <div className="card p-5">
@@ -35,9 +48,7 @@ export function ProofProgress({ stage }: { stage: ProofStage }) {
       </div>
 
       <ol className="flex flex-wrap items-center gap-y-3">
-        {STEPS.map((item, index) => {
-          const reached = item.step <= activeStep;
-          const isActive = item.step === activeStep && stage.running;
+        {steps.map((item, index) => {
           return (
             <li key={item.step} className="flex items-center">
               <div className="flex flex-col items-center gap-1.5">
@@ -62,7 +73,7 @@ export function ProofProgress({ stage }: { stage: ProofStage }) {
                   {item.label}
                 </span>
               </div>
-              {index < STEPS.length - 1 && (
+              {index < steps.length - 1 && (
                 <span
                   className={`mx-2 mb-4 h-px w-6 sm:w-10 ${
                     item.step < activeStep ? 'bg-neon/60' : 'bg-edge'
@@ -74,7 +85,7 @@ export function ProofProgress({ stage }: { stage: ProofStage }) {
         })}
       </ol>
 
-      {done && activeStep === 5 && (
+      {showVerifiedCard && (
         <div className="mt-5 rounded-xl border border-neon/30 bg-neon/10 p-4 text-center">
           <p className="text-sm font-bold text-neon">
             ✓ PRIVACY PROOF VERIFIED

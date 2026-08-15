@@ -3,8 +3,12 @@
 import { useState } from 'react';
 import { ConnectionGate } from '../../components/ConnectionGate';
 import { CredentialCard } from '../../components/CredentialCard';
-import { ProofProgress } from '../../components/ProofProgress';
+import {
+  ProofProgress,
+  REPORT_PIPELINE_STEPS,
+} from '../../components/ProofProgress';
 import { useVeilDrop } from '../../components/wallet-context';
+import { DEPLOYMENT_STEPS } from '../../lib/midnight/contract';
 import { REPORT_CATEGORIES } from '../../lib/midnight/ledger';
 import type { ReportCategoryId, ReportInput } from '../../types';
 
@@ -229,7 +233,14 @@ export default function ReportPage() {
           <div className="space-y-6 lg:col-span-2">
             <CredentialCard />
 
-            <ProofProgress stage={proofStage} />
+            <ProofProgress
+              stage={proofStage}
+              steps={
+                deploymentStatus !== 'idle'
+                  ? DEPLOYMENT_STEPS
+                  : REPORT_PIPELINE_STEPS
+              }
+            />
 
             <div className="card p-5">
               <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-mist">
