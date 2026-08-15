@@ -25,7 +25,7 @@ export function ConnectionGate({
             ? 'No Midnight Lace wallet was detected. Install the Lace extension, enable Midnight, and refresh.'
             : walletStatus === 'detecting'
               ? 'Detecting your Midnight Lace wallet…'
-              : (hint ?? 'Connect your Lace wallet to continue.')}
+              : 'Connect your Lace wallet to continue. Make sure Lace is unlocked and Midnight is enabled in Lace settings.'}
         </p>
         {walletError && (
           <p className="mono mt-3 break-words rounded-lg border border-danger/30 bg-danger/10 p-2 text-xs text-danger">
