@@ -1,0 +1,14 @@
+.env.example
+  h_7aa35c57e7bf7b 25,42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c881173cee21122a83f2f64b5e93210e8c43f637",
+  "prompts": {},
+  "humans": {
+    "h_7aa35c57e7bf7b": {
+      "author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
