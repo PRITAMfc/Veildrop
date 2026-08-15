@@ -1,0 +1,21 @@
+README.md
+  s_e378d0141ac016::t_d2b24f2cbb43c6 1-151
+.github/workflows/ci.yml
+  s_e378d0141ac016::t_c82f933ef97200 1-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ffc82802f74ed63beefa14f0e3d823d5bb4c1ce3",
+  "prompts": {},
+  "sessions": {
+    "s_e378d0141ac016": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ffb4b1e38ffelv1S56NkkzBdSK",
+        "model": "unknown"
+      },
+      "human_author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
