@@ -35,7 +35,7 @@ import {
   updateVeilDropReportStatus,
 } from '../lib/midnight/contract';
 import { ledgerToReports, REPORT_CATEGORIES, REPORT_STATUSES } from '../lib/midnight/ledger';
-import { buildBrowserProviders, type VeilDropProviders } from '../lib/midnight/providers';
+import { buildBrowserProviders, listWallets, type VeilDropProviders } from '../lib/midnight/providers';
 import { getFirstCompatibleWallet } from '../lib/midnight/wallet';
 import type {
   ProofStage,
