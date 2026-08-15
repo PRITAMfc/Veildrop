@@ -16,7 +16,7 @@
     "contract:build": "cd contract && npm run build",
     "env:up": "docker compose up -d --wait",
     "env:down": "docker compose down",
-    "test": "npm run env:up && npm run test:contract; npm run env:down",
+    "test": "npm run env:up && npm run test:contract",
     "test:contract": "vitest run"
   },
   "dependencies": {
