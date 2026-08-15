@@ -1,0 +1,14 @@
+.env.example
+  h_96f0270f72c861 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0e0e87c2f99b81ab394cc604620638b29d1e6311",
+  "prompts": {},
+  "humans": {
+    "h_96f0270f72c861": {
+      "author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
