@@ -1,0 +1,33 @@
+README.md
+  s_e378d0141ac016::t_0256ff575fe4b6 3-4,15-28
+  s_e378d0141ac016::t_f4cc2ac80e0ad7 180-181
+  s_e378d0141ac016::t_5afb02b103f0e5 111-131
+  s_e378d0141ac016::t_b4e3c19520665e 29-31
+  s_e378d0141ac016::t_4d06ba5e45eb9a 132
+docs/evidence/build.txt
+  s_e378d0141ac016::t_53f94f1f1592e3 1-82
+docs/product-proposal.md
+  s_e378d0141ac016::t_25bdaca0aef626 1-52
+docs/evidence/compile-output.txt
+  s_e378d0141ac016::t_9cc7cbe081e6d8 1-36
+docs/evidence/contract-tests.txt
+  s_e378d0141ac016::t_a468edb9795f86 1-124
+docs/evidence/app-tests.txt
+  s_e378d0141ac016::t_fe243ae6937dfd 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "2b6312a91ee061dd97c426ba221d538562cd677f",
+  "prompts": {},
+  "sessions": {
+    "s_e378d0141ac016": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ffb4b1e38ffelv1S56NkkzBdSK",
+        "model": "unknown"
+      },
+      "human_author": "itsmypritam <pritamsdev2@gmail.com>"
+    }
+  }
+}
