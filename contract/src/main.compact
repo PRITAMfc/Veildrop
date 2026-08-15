@@ -1,0 +1,91 @@
+pragma language_version 0.23;
+
+import CompactStandardLibrary;
+
+export enum ReportStatus {
+    REGISTERED,
+    UNDER_INVESTIGATION,
+    RESOLVED
+}
+
+export enum ReportCategory {
+    FINANCIAL,
+    GOVERNMENT,
+    ENVIRONMENTAL,
+    HEALTH,
+    OTHER
+}
+
+export struct ReportEntry {
+    commitment: Bytes<32>,
+    category: ReportCategory,
+    status: ReportStatus,
+    pseudonym: Bytes<32>,
+    timestamp: Uint<64>
+}
+
+export ledger authorizedCredentialHash: Bytes<32>;
+export ledger nextReportId: Counter;
+export ledger reports: Map<Uint<64>, ReportEntry>;
+
+witness reporterSecret(): Bytes<32>;
+witness credentialSecret(): Bytes<32>;
+
+// Domain-separated commitment to a reporter's secret. Identifies a reporter
+// within VeilDrop only, never outside of it.
+export circuit reporterPseudonym(sk: Bytes<32>): Bytes<32> {
+    return persistentHash<Vector<2, Bytes<32>>>([pad(32, "veildrop:reporter:"), sk]);
+}
+
+// Domain-separated commitment to a reporter credential.
+export circuit credentialCommitment(credential: Bytes<32>): Bytes<32> {
+    return persistentHash<Vector<2, Bytes<32>>>([pad(32, "veildrop:credential:"), credential]);
+}
+
+constructor(_authorizedCredentialHash: Bytes<32>) {
+    authorizedCredentialHash = disclose(_authorizedCredentialHash);
+}
+
+// Proves possession of an authorized reporter credential WITHOUT revealing
+// the credential. Only a reporter pseudonym is disclosed.
+export circuit proveAuthorization(): Bytes<32> {
+    const sk = reporterSecret();
+    const credential = credentialSecret();
+    assert(credentialCommitment(credential) == authorizedCredentialHash, "not an authorized reporter");
+    return disclose(reporterPseudonym(sk));
+}
+
+// Registers a report commitment after the caller proves authorization.
+// Only the commitment is published; the raw report stays private.
+export circuit submitReport(commitment: Bytes<32>, category: ReportCategory, timestamp: Uint<64>): [] {
+    const sk = reporterSecret();
+    const credential = credentialSecret();
+    assert(credentialCommitment(credential) == authorizedCredentialHash, "not an authorized reporter");
+    nextReportId.increment(1);
+    const reportId = disclose(nextReportId.read() as Uint<64>);
+    reports.insert(reportId, ReportEntry {
+        commitment: disclose(commitment),
+        category: disclose(category),
+        status: disclose(ReportStatus.REGISTERED),
+        pseudonym: disclose(reporterPseudonym(sk)),
+        timestamp: disclose(timestamp)
+    });
+}
+
+// Updates the public status of a report. Status is intentionally public so
+// the progress of a report can be followed without revealing identity.
+export circuit updateReportStatus(reportId: Uint<64>, newStatus: ReportStatus): [] {
+    const _reportId = disclose(reportId);
+    assert(reports.member(_reportId), "report not found");
+    const entry = reports.lookup(_reportId);
+    assert(newStatus == ReportStatus.REGISTERED ||
+           newStatus == ReportStatus.UNDER_INVESTIGATION ||
+           newStatus == ReportStatus.RESOLVED, "invalid report status");
+    reports.insert(_reportId, ReportEntry {
+        commitment: entry.commitment,
+        category: entry.category,
+        status: disclose(newStatus),
+        pseudonym: entry.pseudonym,
+        timestamp: entry.timestamp
+    });
+}
