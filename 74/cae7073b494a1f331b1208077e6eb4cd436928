@@ -1,0 +1,18 @@
+app/investigator/page.tsx
+  h_96f0270f72c861 11,48,72
+app/report/page.tsx
+  h_96f0270f72c861 50-52
+components/WalletProvider.tsx
+  h_96f0270f72c861 371,424,451
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "74cae7073b494a1f331b1208077e6eb4cd436928",
+  "prompts": {},
+  "humans": {
+    "h_96f0270f72c861": {
+      "author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
