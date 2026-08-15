@@ -1,0 +1,35 @@
+lib/midnight/timeout.ts
+  s_302cfe301cd30d::t_ee478056a395ec 1-21
+lib/midnight/providers.ts
+  s_302cfe301cd30d::t_07f1efa37365da 40-43,48-50,67,73
+  s_302cfe301cd30d::t_30a5fb6d53c040 24
+lib/midnight/contract.ts
+  s_302cfe301cd30d::t_a0dbc709fe5b52 117-134
+  s_302cfe301cd30d::t_5b9a612b1631fb 12,24-44,57-80
+  s_302cfe301cd30d::t_52f8250f76c8e1 155-165
+components/WalletProvider.tsx
+  s_302cfe301cd30d::t_23410811a90dfa 39
+components/ProofProgress.tsx
+  s_302cfe301cd30d::t_dd49d7550bf1ea 5-10,18-25,27-28
+  s_302cfe301cd30d::t_605d15af230420 51
+  s_302cfe301cd30d::t_b0695736c08948 76,88
+app/report/page.tsx
+  s_302cfe301cd30d::t_cbe87cd3b8394c 236-243
+  s_302cfe301cd30d::t_9c42c0c2c46be3 6-9,11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "9ad790b336a9d9fd12b9a1eda0fa6e7ccd45b8c5",
+  "prompts": {},
+  "sessions": {
+    "s_302cfe301cd30d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ff92d2386ffe2sYWl5IsR5W9nY",
+        "model": "unknown"
+      },
+      "human_author": "PRITAMfc <proumg2@gmail.com>"
+    }
+  }
+}
