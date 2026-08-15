@@ -29,7 +29,9 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Start local devnet
-        run: npm run env:up
+        run: |
+          chmod +x scripts/ci-devnet.sh
+          bash scripts/ci-devnet.sh
       - name: Run contract tests
         run: npm run test:contract
       - name: Stop local devnet

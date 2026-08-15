@@ -25,7 +25,6 @@ services:
       APP__INFRA__LEDGER_STATE_STORAGE__PASSWORD: 'indexer'
       APP__INFRA__SECRET: '303132333435363738393031323334353637383930313233343536373839303132'
       APP__INFRA__SPO_NODE__URL: 'ws://node:9944'
-      APP__INFRA__SPO_NODE__BLOCKFROST_ID: 'e2e-test-dummy-id'
     healthcheck:
       test: ['CMD-SHELL', 'cat /var/run/indexer-standalone/running']
       interval: 10s
@@ -35,6 +34,7 @@ services:
     depends_on:
       node:
         condition: service_healthy
+    restart: unless-stopped
   node:
     image: 'midnightntwrk/midnight-node:1.0.0'
     ports:
